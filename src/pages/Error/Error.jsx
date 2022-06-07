@@ -9,7 +9,8 @@ function Error (){
 
     return(
         <div className="error d-flex flex-column justify-content-center">
-            <h1>INDIQUE LA URL CORRECTA</h1>
+            <h1>INVALID URL</h1>
+            <h2>TRY WITH: /* , /home , /index </h2>
         </div>
     )
 }
