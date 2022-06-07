@@ -1,0 +1,17 @@
+.footer{
+    background-color: black;
+    height: 100px;
+}
+.footer h1{
+    color: white;
+}
+
+.footerIcon{
+    width: 75px;
+    height: 75px;
+    border-radius: 500px;
+}
+
+.footerLink{
+    color: white !important;
+}

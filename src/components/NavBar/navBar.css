@@ -1,0 +1,23 @@
+.navbar {
+    background-color: rgba(55, 41, 117, 0.932) !important; 
+    position: sticky;
+}
+
+.navbar a {
+    color: white !important;
+}
+
+.dropdown-menu {
+    background-color: rgba(55, 41, 117, 0.932) ;
+}
+
+
+.logoSign{
+    width: 40px;
+    height: 40px;
+}
+
+.dropLink:hover{
+    background-color: rgb(95, 43, 143) !important;
+}
+
