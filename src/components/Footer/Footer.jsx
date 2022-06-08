@@ -8,14 +8,14 @@ const Footer = () => {
     let title = "MyTinerary"
 
     return (
-        <div className="footer d-flex justify-content-around align-items-center">
+        <div className="container-fluid footer d-flex justify-content-around align-items-center">
 
             <ul className="navbar-nav">
-                <li className="nav-item">
-                <Link className="footerLink nav-link active" to={"/home"}>HOME</Link>
+                <li className="nav-item m-1">
+                <Link className="footerLink nav-link active btnF" to={"/home"}>HOME</Link>
                 </li>
-                <li className="nav-item">
-                <Link className="footerLink nav-link active" to={"/cities"}>CITIES</Link>
+                <li className="nav-item m-1">
+                <Link className="footerLink nav-link active btnF" to={"/cities"}>CITIES</Link>
                 </li>
             </ul>
 

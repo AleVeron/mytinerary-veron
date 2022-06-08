@@ -18,13 +18,11 @@ function App() {
             <NavBar/>
 
             <Routes>
-
               <Route path="/" element={<Main/>}/>
               <Route path="/index" element={<Main/>}/>
               <Route path="/home" element={<Main/>}/>
               <Route path="/*" element={<Error/>}/>
               <Route path="/cities" element={<Cities/>}/>
-
             </Routes>
 
             <Footer/>

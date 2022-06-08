@@ -1,10 +1,9 @@
 import React from "react";
 import "./error.css";
-import cities from '../../data/data.js';
 
 function Error (){
 
-    console.log(cities);
+
 
 
     return(

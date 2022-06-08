@@ -22,8 +22,9 @@ export default function Carousel(props) {
   return (
    
    <>  
-      <h1 className="p-3">{title}</h1>
-      <Swiper 
+      <h1 className="p-3 carouselTitle">{title}</h1>
+      <Swiper
+      
         slidesPerView={2}
         grid={{
           rows: 2,
@@ -44,7 +45,7 @@ export default function Carousel(props) {
       >
         {/* Realizo el mapeo de la variable city */}
         {cities.map((city)=>(
-          <SwiperSlide style={{backgroundImage:`url("${city.image}")`,
+          <SwiperSlide key={city.id} style={{backgroundImage:`url("${city.image}")`,
           backgroundSize: "cover", backgroundPosition:"center", backgroundRepeat:"no-repeat"}}>
 
             <h3 className="cityTitle">{city.name}</h3>
