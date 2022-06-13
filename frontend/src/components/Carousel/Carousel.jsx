@@ -16,10 +16,10 @@ import { Grid, Pagination, Autoplay , Navigation } from "swiper";
 
 
 export default function Carousel(props) {
-  console.log(props)
+  
   let title = "Popular MyTineraries"
   const cities = props.dataCities;
-  console.log(cities);
+
   return (
    
    <>  
@@ -47,7 +47,7 @@ export default function Carousel(props) {
       >
         {/* Realizo el mapeo de la variable city */}
         {cities.map((city)=>(
-          <SwiperSlide key={city.id} style={{backgroundImage:`url("${city.image}")`,
+          <SwiperSlide  key={city.id} style={{backgroundImage:`url("${city.image}")`,
           backgroundSize: "cover", backgroundPosition:"center", backgroundRepeat:"no-repeat"}}>
 
             <h3 className="cityTitle fs-4">{city.name}</h3>

@@ -7,7 +7,7 @@ import cities from '../../data/data.js';
 
 function Main (){
 
-    console.log(cities);
+    
 
 
     return(

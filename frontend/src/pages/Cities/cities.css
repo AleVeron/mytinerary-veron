@@ -1,3 +1,7 @@
 .cities {
     background-color: rgba(137, 43, 226, 0.623);
 }
+.search{
+    width: 240px;
+    box-shadow: -5px 5px 10px black;
+}

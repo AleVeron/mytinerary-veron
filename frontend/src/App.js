@@ -23,6 +23,7 @@ function App() {
               <Route path="/home" element={<Main/>}/>
               <Route path="/*" element={<Error/>}/>
               <Route path="/cities" element={<Cities/>}/>
+              {/* <Route path=''/> */}
             </Routes>
 
             <Footer/>
