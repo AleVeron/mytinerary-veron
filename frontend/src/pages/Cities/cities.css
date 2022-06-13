@@ -5,3 +5,7 @@
     width: 240px;
     box-shadow: -5px 5px 10px black;
 }
+.error{
+    height: 100vh;
+    background-color: transparent;
+}
