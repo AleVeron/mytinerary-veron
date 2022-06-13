@@ -1,19 +1,9 @@
-const express = require("express");
-const app = express();
+require("dotenv").config()
+require("./config/database")
 
-const PORT = 4000;
-app.set("port", PORT)
+const express = require("express")
+const PORT = 4000
 
-//GET obtener
-//POST enviar
-//DELETE Eliminar
-//PUT Actualizar
+const app = express()
 
-
-app.get("/", function(req, res){
-    res.send("Server created!")
-})
-
-app.listen(PORT, function(){
-    console.log("Server is running on: " + PORT);
-})
+app.listen(PORT,() => console.log("Server ready on PORT " + PORT));
