@@ -25,7 +25,6 @@ export default function Carousel(props) {
    <>  
       <h1 className="p-3 carouselTitle">{title}</h1>
       <Swiper
-        
         slidesPerView={2}
         grid={{
           rows: 2,

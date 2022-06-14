@@ -1,0 +1,6 @@
+.detail{
+    min-height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

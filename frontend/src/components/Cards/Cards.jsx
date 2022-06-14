@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import "./cards.css";
 
 
-
 const Cards = ({city}) => {
+  
     
     return (
 
@@ -12,7 +13,9 @@ const Cards = ({city}) => {
               <div className="card-body">
                   <h5 className="card-title">{city.name}</h5>
                   <p className="card-text">{city.description}</p>
-                  <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                  <Link key={city.id} to={`/city/${city.id}`}>
+                    <button>HOLA</button>
+                    </Link>
               </div>
               </div>  
         </>

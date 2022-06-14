@@ -1,5 +1,6 @@
 .cities {
     background-color: rgba(137, 43, 226, 0.623);
+    min-height: 82vh;
 }
 .search{
     width: 240px;
