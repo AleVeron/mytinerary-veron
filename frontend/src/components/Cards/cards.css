@@ -3,3 +3,6 @@
     padding: 0px;
     box-shadow: -10px 10px 13px black;
 }
+.imgCard{
+    min-height: 350px;
+}

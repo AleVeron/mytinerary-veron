@@ -12,7 +12,7 @@ export default function Hero() {
                 </div>
                 <div className="d-flex flex-column justify-content-around align-items-center gap-5">
                 <Link to={"/cities"}><button className="heroButton">Go to your next travel</button></Link>
-                    <p className="heroP ms-2 me-2 p-3">"Find your perfect trip, designed by insiders who know and love their cities!"</p>
+                    <p className="heroP p-3">"Find your perfect trip, designed by insiders who know and love their cities!"</p>
                 </div>
             </div>
 

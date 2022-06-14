@@ -7,7 +7,7 @@ import "./detail.css";
 export default function Detail(){
     const {id} = useParams()
     return(
-        <div className="detail">
+        <div className="detail p-2">
             <CardDetail key={cities.id} city={cities.filter(city => city.id == Number(id))}/>
         </div>
         
