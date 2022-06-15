@@ -1,24 +1,32 @@
-/* import React, { useRef, useState } from "react"; */
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./carousel.css";
 
 // import required modules
 import { Grid, Pagination, Autoplay , Navigation } from "swiper";
 
 
-export default function Carousel(props) {
+
+export default function Carousel() {
+
+  const [city, setCity] = useState()
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/api/cities")
+    .then(response => setCity(response.data.response.cities))
+  }, [])
+  
   
   let title = "Popular MyTineraries"
-  const cities = props.dataCities;
+ 
 
   return (
    
@@ -45,8 +53,8 @@ export default function Carousel(props) {
         
       >
         {/* Realizo el mapeo de la variable city */}
-        {cities.map((city)=>(
-          <SwiperSlide  key={city.id} style={{backgroundImage:`url("${city.image}")`,
+        {city?.map((city)=>(
+          <SwiperSlide  key={city._id} style={{backgroundImage:`url("${city.image}")`,
           backgroundSize: "cover", backgroundPosition:"center", backgroundRepeat:"no-repeat"}}>
 
             <h3 className="cityTitle fs-4">{city.name}</h3>

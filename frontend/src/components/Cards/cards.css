@@ -1,8 +1,14 @@
 .card{
-    background-color: rgb(165, 158, 165);
+    background-color: rgba(55, 41, 117, 0.662);
     padding: 0px;
     box-shadow: -10px 10px 13px black;
+    color: white;
 }
+
+
 .imgCard{
-    min-height: 350px;
+    height: 325px;
+    object-fit: cover;
 }
+
+

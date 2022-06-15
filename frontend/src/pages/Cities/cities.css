@@ -1,12 +1,21 @@
 .cities {
-    background-color: rgba(137, 43, 226, 0.623);
     min-height: 82vh;
 }
 .search{
     width: 300px;
     box-shadow: -5px 5px 10px black;
+    border-radius: 10px;
 }
 .error{
     height: 100vh;
     background-color: transparent;
 }
+.search:hover{
+    transform: scale(1.1);
+}
+.citiesTitle{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 550;
+    color: black;
+}
+

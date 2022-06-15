@@ -1,19 +1,33 @@
 import "./cities.css";
 import Cards from "../../components/Cards/Cards";
-import cities from '../../data/data.js';
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios"
 
 function Cities (){
 
-    const [city, setCity] = useState([])
+    const [citys, setCity] = useState()
     const [input, setInput] = useState('')
+    const [cityFilter, setCityFilter] = useState()
 
     useEffect(()=>{
-        setCity(cities)
-        let citiFiltered = cities.filter(c => c.name.toLowerCase().startsWith(input.trim().toLocaleLowerCase()))
-        setCity(citiFiltered)
-    },[input])
+        axios.get("http://localhost:4000/api/cities")
+        .then(response => setCity(response.data.response.cities))
+        
+    }, [])
+    console.log(citys);
+
+    const handlechange = (e) => {
+        setInput(e.target.value)
+        console.log(input);
+    }
+
+    useEffect(()=>{
+        let cityFiltered = citys?.filter(c => c.name.toLowerCase().startsWith(input.trim().toLocaleLowerCase()))
+        setCityFilter(cityFiltered)
+        console.log(cityFiltered)
+    },[input, citys])
+
 
 
     return(
@@ -21,15 +35,14 @@ function Cities (){
 
             <div className="d-flex gap-3 p-5 flex-column flex-md-row align-items-center justify-content-around"> 
 
-                <h1 >Search for your favorite city</h1>
+                <h1 className="citiesTitle">Search for your favorite city</h1>
 
+                
                 <input 
                 className="search" 
                 type="search" 
                 placeholder="Search here"
-                onKeyUp={(e)=>{
-                    setInput(e.target.value)
-                }}
+                onKeyUp={handlechange}
                 >
                 </input>
 
@@ -38,7 +51,7 @@ function Cities (){
 
             <div className="d-flex flex-md-row flex-wrap gap-3 container justify-content-center">
 
-            {city.length > 0 ? city.map(city => <Cards city={city} key={city.id}/>) : <div className="error"><h1>Not found city</h1></div>}
+            {cityFilter?.length > 0 ? cityFilter.map(city => <Cards city={city} key={city._id}/>) : <div className="error"><h1>Not found city</h1></div>}
 
             </div>
 
