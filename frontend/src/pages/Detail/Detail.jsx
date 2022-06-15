@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import "./detail.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function Detail() {
@@ -28,7 +29,7 @@ export default function Detail() {
                 <div className="card-body">
                     <h5 className="card-title">{filtersDetail?.name}</h5>
                     <p className="card-text">{filtersDetail?.description}</p>
-                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                    <Link className="nav-link active" to={"/cities"}>Go back</Link>
                 </div>
             </div>
         </div>
