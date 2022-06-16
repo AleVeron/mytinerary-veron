@@ -29,7 +29,7 @@ export default function Detail() {
                 <div className="card-body">
                     <h5 className="card-title">{filtersDetail?.name}</h5>
                     <p className="card-text">{filtersDetail?.description}</p>
-                    <Link className="nav-link active" to={"/cities"}>Go back</Link>
+                    <Link className="nav-link active btnF" to={"/cities"}>Go back</Link>
                 </div>
             </div>
         </div>

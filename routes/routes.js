@@ -12,7 +12,7 @@ Router.route('/cities/:id')
 .put(modifyCity)
 .get(getOneCity)
 
-Router.route('multiplesCities')
+Router.route('/multiplesCities')
 .post(multiplesCities)
 
 module.exports = Router
