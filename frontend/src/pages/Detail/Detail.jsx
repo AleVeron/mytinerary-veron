@@ -24,7 +24,7 @@ export default function Detail() {
     return (
         
         <div className="detail p-2">
-            <div key={filtersDetail?.id} className="container card mb-3 col-11 col-sm-12 col-md-8">
+            <div key={filtersDetail?.id} className="container card mb-3 col-10 col-sm-12 col-md-6">
                 <img src={filtersDetail?.image} className="card-img-top" alt={filtersDetail?.name} />
                 <div className="card-body">
                     <h5 className="card-title">{filtersDetail?.name}</h5>
