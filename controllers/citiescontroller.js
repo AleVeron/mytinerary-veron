@@ -1,5 +1,7 @@
 const City = require('../models/city')
 
+//Utiliza metodos de la libreria mongoose
+
 const citiesControllers = {
     getCities: async(req, res) => {
         let cities

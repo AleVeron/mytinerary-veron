@@ -1,5 +1,5 @@
-require('dotenv').config()
-require('./config/database')
+require('dotenv').config()   //Requiero libreria dot env
+require('./config/database') //Llama la config de mongo
 
 const express = require ('express')
 const Router = require ('./routes/routes')

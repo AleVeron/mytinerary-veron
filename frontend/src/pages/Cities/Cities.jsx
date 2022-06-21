@@ -8,7 +8,6 @@ function Cities (){
 
     const [citys, setCity] = useState()
     const [input, setInput] = useState('')
-    const [cityFilter, setCityFilter] = useState()
 
     useEffect(()=>{
         axios.get("http://localhost:4000/api/cities")
@@ -22,12 +21,9 @@ function Cities (){
         console.log(input);
     }
 
-    useEffect(()=>{
-        let cityFiltered = citys?.filter(c => c.name.toLowerCase().startsWith(input.trim().toLocaleLowerCase()))
-        setCityFilter(cityFiltered)
-        console.log(cityFiltered)
-    },[input, citys])
 
+    //Aplico filtrado al state citys que contiene toda la info de mi app
+    let cityFiltered = citys?.filter(c => c.name.toLowerCase().startsWith(input.trim().toLocaleLowerCase()))
 
 
     return(
@@ -51,7 +47,9 @@ function Cities (){
 
             <div className="d-flex flex-md-row flex-wrap gap-3 container justify-content-center">
 
-            {cityFilter?.length > 0 ? cityFilter.map(city => <Cards city={city} key={city._id}/>) : <div className="error"><h1>Not found city</h1></div>}
+
+            {/* Realizo el mapeo de mis cards con el array filtrado */}
+            {cityFiltered?.length > 0 ? cityFiltered.map(city => <Cards city={city} key={city._id}/>) : <div className="error"><h1>Not found city</h1></div>}
 
             </div>
 
