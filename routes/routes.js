@@ -30,7 +30,7 @@ Router.route('/itineraries/:id')
 Router.route('/multiplesItineraries')
 .post(multiplesItineraries)
 
-Router.route('/itinerariesByCity/:id')
+Router.route('/itineraries/city/:id')
 .get(getItinerariesByCity)
 
 module.exports = Router

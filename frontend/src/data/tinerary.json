@@ -7,7 +7,9 @@
         "duration":"⏱3hs",
         "price":"💵💵",
         "hashtag:":["#tokyo", "#food","#japan"],
-        "activities":"This one-day eating itinerary takes you through some of the highlights of Tokyo’s vast culinary scene. It includes the famed Tsukiji Market, fabulous snacks, the best pizza in Tokyo, and glorious Japanese beef."
+        "activities":"This one-day eating itinerary takes you through some of the highlights of Tokyo’s vast culinary scene. It includes the famed Tsukiji Market, fabulous snacks, the best pizza in Tokyo, and glorious Japanese beef.",
+        "cityId": "62a9de9a09ebda455dcea472"
+    
     },
     {
         "title":"Tokyo Shopping Itinerary.",
@@ -17,7 +19,8 @@
         "duration":"⏱2hs",
         "price":"💵💵💵💵",
         "hashtag:":["#tokyo", "#shopping","#japan"],
-        "activities":"Tokyo is one of the world's best shopping cities. The shops and the service are world famous. Here are my picks for what and where to buy in Tokyo."
+        "activities":"Tokyo is one of the world's best shopping cities. The shops and the service are world famous. Here are my picks for what and where to buy in Tokyo.",
+        "cityId": "62a9de9a09ebda455dcea472"
     },
     {
         "title":"The Royal Palace of Madrid (Palacio Real de Madrid).",
@@ -27,7 +30,8 @@
         "duration":"⏱3hs",
         "price":"💵💵💵",
         "hashtag:":["#spain", "#palace","#madrid"],
-        "activities":"The Royal Palace of Madrid or Palacio Real de Madrid is probably one of those places that are in almost everyone's itinerary. It’s a majestic building and one of the largest of its kind in Europe. And if you think the outside is impressive just wait until you see the inside. The palace boasts the royal crown jewels, paintings from Caravaggio, Francisco de Goya, and  Diego Velázquez and the only complete Stradivarius string quintet left in the world. Another must visit part of the palace is the Royal Chapel or La Capilla Real de Madrid with frescoes by Giaquinto."
+        "activities":"The Royal Palace of Madrid or Palacio Real de Madrid is probably one of those places that are in almost everyone's itinerary. It’s a majestic building and one of the largest of its kind in Europe. And if you think the outside is impressive just wait until you see the inside. The palace boasts the royal crown jewels, paintings from Caravaggio, Francisco de Goya, and  Diego Velázquez and the only complete Stradivarius string quintet left in the world. Another must visit part of the palace is the Royal Chapel or La Capilla Real de Madrid with frescoes by Giaquinto.",
+        "cityId": "62a95f888fc8201859e509ad"
     },
     {
         "title":"Museo Del Prado, La Puerta De Alcalá, El Perro Y La Galleta And El Retiro.",
@@ -37,7 +41,8 @@
         "duration":"⏱2hs",
         "price":"💵💵💵",
         "hashtag:":["#spain", "#museum","#madrid"],
-        "activities":"Start by heading to the Museo Nacional Del Prado (or Prado Museum) to spend the morning immersing yourself in the masterpieces of El Greco, Velázquez, Murillo, Ribera, Zurbarán, Miró, Goya, and Picasso. The Prado Museum is located just next to the Botanical Garden, and 3 blocks away from El Parque del Retiro. The museum features not only the most complete collection of Spanish artworks in the world but also pieces from painters like Bosch and Titian."
+        "activities":"Start by heading to the Museo Nacional Del Prado (or Prado Museum) to spend the morning immersing yourself in the masterpieces of El Greco, Velázquez, Murillo, Ribera, Zurbarán, Miró, Goya, and Picasso. The Prado Museum is located just next to the Botanical Garden, and 3 blocks away from El Parque del Retiro. The museum features not only the most complete collection of Spanish artworks in the world but also pieces from painters like Bosch and Titian.",
+        "cityId": "62a95f888fc8201859e509ad"
     },
     {
         "title":"Oxford",
@@ -47,7 +52,8 @@
         "duration":"⏱4hs",
         "price":"💵💵💵💵",
         "hashtag:":["#england", "#oxford","#london"],
-        "activities":"Oxford is a compact and scenic historical city that is home to England’s oldest university. You can read our post about things to do in Oxford and how to plan your own Oxford day trip from London. It is easy to reach by train. If you are interested in a guided tour, you might consider this tour which visits Oxford plus the Cotswolds."
+        "activities":"Oxford is a compact and scenic historical city that is home to England’s oldest university. You can read our post about things to do in Oxford and how to plan your own Oxford day trip from London. It is easy to reach by train. If you are interested in a guided tour, you might consider this tour which visits Oxford plus the Cotswolds.",
+        "cityId": "62a95f9c8fc8201859e509af"
     },
     {
         "title":"Stratford-upon-Avon",
@@ -57,7 +63,8 @@
         "duration":"⏱2hs",
         "price":"💵💵💵",
         "hashtag:":["#england", "#stratford","#london"],
-        "activities":"Stratford-upon-Avon is a picturesque Midlands market town that is best known as the birthplace of William Shakespeare and for its well-preserved Tudor buildings. Best ways to get here is by car, train, or guided tour. Here is a guided tour option that includes a visit to Stratford-upon-Avon and the Cotswolds."
+        "activities":"Stratford-upon-Avon is a picturesque Midlands market town that is best known as the birthplace of William Shakespeare and for its well-preserved Tudor buildings. Best ways to get here is by car, train, or guided tour. Here is a guided tour option that includes a visit to Stratford-upon-Avon and the Cotswolds.",
+        "cityId": "62a95f9c8fc8201859e509af"
     },
     {
         "title":"Private Tour of Machu Picchu",
@@ -67,7 +74,8 @@
         "duration":"⏱6hs",
         "price":"💵💵",
         "hashtag:":["#peru", "#privatetour","#machupicchu"],
-        "activities":"Rise and shine early today as you take the first train in the morning to Aguas Calientes, the small village at the base of Machu Picchu. An English-speaking guide will be waiting for you and you can either hike up (45 minutes) or take the bus (20 minutes) to MP. You will have a private guided tour and the opportunity to hike La Montana (Machu Picchu mountain). Here is where you can get in some good hiking. It’s a strenuous hike, but you'll be well rewarded. In the evening, you will return to Cusco by Vistadome train."
+        "activities":"Rise and shine early today as you take the first train in the morning to Aguas Calientes, the small village at the base of Machu Picchu. An English-speaking guide will be waiting for you and you can either hike up (45 minutes) or take the bus (20 minutes) to MP. You will have a private guided tour and the opportunity to hike La Montana (Machu Picchu mountain). Here is where you can get in some good hiking. It’s a strenuous hike, but you'll be well rewarded. In the evening, you will return to Cusco by Vistadome train.",
+        "cityId": "62a95f578fc8201859e509a9"
     },
     {
         "title":"Ocean Park or Disneyland",
@@ -77,7 +85,8 @@
         "duration":"⏱3hs",
         "price":"💵💵💵💵",
         "hashtag:":["#china", "#oceanpark","#hongkong"],
-        "activities":"This one is up to you. There are two main theme parks in Hong Kong – Ocean Park which has a bunch of different types of rides, shows and animals to see and Disneyland which is basically just the HK version of one you would see in the US."
+        "activities":"This one is up to you. There are two main theme parks in Hong Kong – Ocean Park which has a bunch of different types of rides, shows and animals to see and Disneyland which is basically just the HK version of one you would see in the US.",
+        "cityId": "62a95fb48fc8201859e509b1"
     },
     {
         "title":"The Holocaust Memorial - Memorial to the Murdered Jews of Europe",
@@ -87,7 +96,8 @@
         "duration":"⏱5hs",
         "price":"💵💵💵💵",
         "hashtag:":["#germany", "#holocaustmemorial","#berlin"],
-        "activities":"Constructed from 2003 to 2004, the Holocaust Memorial - Memorial to the Murdered Jews of Europe, is a striking sight that draws millions of visitors every year. The memorial contains 2,711 rectangular concrete blocks (stelae) placed in a grid pattern in a 19,000-square-metre area."
+        "activities":"Constructed from 2003 to 2004, the Holocaust Memorial - Memorial to the Murdered Jews of Europe, is a striking sight that draws millions of visitors every year. The memorial contains 2,711 rectangular concrete blocks (stelae) placed in a grid pattern in a 19,000-square-metre area.",
+        "cityId": "62a95fe58fc8201859e509b5"
     }
 ]
 }

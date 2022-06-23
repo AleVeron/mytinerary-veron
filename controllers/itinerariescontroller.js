@@ -7,7 +7,7 @@ const itinerariesControllers = {
         let itineraries
         let error = null
         try{
-            itineraries = await Itinerary.find()
+            itineraries = await Itinerary.find().populate("cityId")
         } catch(err) {error = err}
         res.json({
             response: error ? 'ERROR' : {itineraries},
@@ -114,7 +114,7 @@ const itinerariesControllers = {
         let itineraries
         let error = null
         try{
-            itineraries = await Itinerary.find({city : id})
+            itineraries = await Itinerary.find({cityId : id}).populate("cityId")
         }catch (err) {
             error = err
         }
