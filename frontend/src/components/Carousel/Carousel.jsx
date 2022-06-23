@@ -19,8 +19,6 @@ function Carousel() {
 
   const cities = useSelector((store) => store.citiesReducer.cities)
 
-  console.log(cities);
-
   let title = "Popular MyTineraries"
 
 

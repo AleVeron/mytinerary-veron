@@ -13,7 +13,8 @@ function NavBar() {
      
                 <nav className="navbar navbar-expand-lg bg-light">
                     <div className="container-fluid ps-md-4">
-                        <a className="navbar-brand" href="#">MyTinerary</a>
+                    <Link className="navbar-brand" to={"/home"}>MyTinerary</Link>
+                        
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>

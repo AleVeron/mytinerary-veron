@@ -1,6 +1,33 @@
-.detail{
+.detail {
     min-height: 82vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.accordion-item {
+    background-color: transparent !important;
+    color: white;
+    border: none !important;
+}
+
+.accordion-button {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.titleDetail {
+    height: 400px;
+}
+
+.titleTinerary {
+    color: black;
+    font-weight: 550;
+    background-color: rgba(246, 241, 241, 0.39);
+    border-radius: 5px;
+    padding: 2px;
+    font-size: 65px;
+}
+.imgTinerary{
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 150%;
 }

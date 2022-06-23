@@ -11,7 +11,6 @@ function Cities() {
 
     //Traigo toda mi app con useSelector
     const cities = useSelector((store) => store.citiesReducer.cities)
-    console.log(cities);
 
     const dispatch = useDispatch();
 
@@ -21,14 +20,13 @@ function Cities() {
 
     //Traigo mis ciudades filtradas con useSelector
     const filteredCities = useSelector((store) => store.citiesReducer.cityFilter)
-    console.log(filteredCities);
+
 
 
     const handlechange = (e) => {
         setInput(e.target.value)
         console.log(input);
     }
-
 
 
     return (
