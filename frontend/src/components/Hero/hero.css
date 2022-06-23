@@ -30,8 +30,8 @@
 /* Parrafo */
 .heroP{
     font-family: monospace;
-    border: solid black 4px;
-    font-weight: 800;
+    border: solid black 1px;
+    font-weight: 550;
     color: black;
     font-size: 20px;
     border-radius: 5px;
