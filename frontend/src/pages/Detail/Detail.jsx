@@ -44,7 +44,8 @@ export default function Detail() {
                 <h5 className="card-title titleTinerary">{filterCity?.name}</h5>
             </div>
 
-            {itinerary.map(item =>
+
+            {itinerary.length > 0 ? itinerary.map((item, index) =>
 
                 <div key={item._id} className="container card mb-3 col-10 col-sm-12 col-md-8">
 
@@ -86,7 +87,7 @@ export default function Detail() {
                     </div>
 
                 </div>
-            )}
+            ) : <div className="ityNotfound"><h1>Not found itinerary</h1></div>}
 
             <Link className="nav-link active btnF m-3" to={"/cities"}>Go back</Link>
 

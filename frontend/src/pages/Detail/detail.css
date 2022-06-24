@@ -31,3 +31,7 @@
     object-fit: cover;
     border-radius: 150%;
 }
+
+.ityNotfound{
+    color: white;
+}
