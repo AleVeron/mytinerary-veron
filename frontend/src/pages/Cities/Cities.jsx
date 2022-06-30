@@ -7,10 +7,12 @@ import citiesActions from "../../redux/actions/citiesActions";
 
 function Cities() {
 
+    
+
     const [input, setInput] = useState('')
 
     //Traigo toda mi app con useSelector
-    const cities = useSelector((store) => store.citiesReducer.cities)
+    // const cities = useSelector((store) => store.citiesReducer.cities)
 
     const dispatch = useDispatch();
 
@@ -20,7 +22,6 @@ function Cities() {
 
     //Traigo mis ciudades filtradas con useSelector
     const filteredCities = useSelector((store) => store.citiesReducer.cityFilter)
-
 
 
     const handlechange = (e) => {

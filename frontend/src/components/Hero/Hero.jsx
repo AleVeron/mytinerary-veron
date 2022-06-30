@@ -11,7 +11,7 @@ export default function Hero() {
                 <img className="heroIcon" src={imgHero} alt=""/>
                 </div>
                 <div className="d-flex flex-column justify-content-around align-items-center gap-5">
-                <Link to={"/cities"}><button className="heroButton">Find your next experience</button></Link>
+                <Link to={"/cities"}><button className="heroButton col-9 col-lg-10">Find your next experience</button></Link>
                     <p className="heroP p-3 col-10">"Find your perfect trip, designed by insiders who know and love their cities!"</p>
                 </div>
             </div>

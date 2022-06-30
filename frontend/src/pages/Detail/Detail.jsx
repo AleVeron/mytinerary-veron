@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import citiesActions from "../../redux/actions/citiesActions";
 import itinerariesActions from "../../redux/actions/itinerariesActions";
-
+import Itinerary from "../../components/Itinerary/Itinerary";
 
 
 export default function Detail() {
@@ -24,17 +24,12 @@ export default function Detail() {
     const itinerary = useSelector(store => store.itinerariesReducer.itineraries)
 
 
-
-
     const filterCity = useSelector(store => store.citiesReducer.oneCity)
-
-
-
 
 
     return (
 
-        <div className="detail d-flex flex-column align-items-center justify-content-around">
+        <div className="detail d-flex flex-column align-items-center justify-content-between">
 
 
             <div style={{
@@ -47,7 +42,7 @@ export default function Detail() {
 
             {itinerary.length > 0 ? itinerary.map((item, index) =>
 
-                <div key={item._id} className="container card mb-3 col-10 col-sm-12 col-md-8">
+/*                 <div key={item._id} className="container card mb-3 col-10 col-sm-12 col-md-8">
 
 
 
@@ -86,10 +81,11 @@ export default function Detail() {
 
                     </div>
 
-                </div>
+                </div> */
+                <Itinerary item={item} key={item._id}/>
             ) : <div className="ityNotfound"><h1>Not found itinerary</h1></div>}
 
-            <Link className="nav-link active btnF m-3" to={"/cities"}>Go back</Link>
+                <Link className="nav-link active btnD btnF m-3" to={"/cities"}>Go back</Link>
 
         </div>
 

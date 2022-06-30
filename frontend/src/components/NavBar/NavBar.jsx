@@ -33,8 +33,8 @@ function NavBar() {
                                         <img className="logoSign" src="http://cdn.onlinewebfonts.com/svg/img_311846.png" alt="" />
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a className="dropLink dropdown-item text-center text-lg-start" href="#">Sign in</a></li>
-                                        <li><a className="dropLink dropdown-item text-center text-lg-start" href="#">Sign Out</a></li>
+                                        <Link className="dropLink dropdown-item text-center text-lg-start" to={"/signUp"}>Sign up</Link>
+                                        <Link className="dropLink dropdown-item text-center text-lg-start" to={"/signIn"}>Sign in</Link>
                                     </ul>
                                 </li>
 

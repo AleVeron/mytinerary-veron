@@ -14,3 +14,6 @@ const cities = [
 ]
 
 export default cities;
+
+var countries = ["Mexico", "U.S.A.", "Brazil", "Argentina", "Tailandia", "China", "Singapur", "Japan", "Spain", "England", "France", "Italy", "Fiyi", "Autralia", "New Zealand", "Marshall Islands", "Other Country"]
+
