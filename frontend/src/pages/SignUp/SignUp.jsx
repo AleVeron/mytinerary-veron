@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import GoogleSignUp from '../../components/GoogleSignUp/GoogleSignUp'
 
 
+
 function SignUp() {
 
 
@@ -48,7 +49,6 @@ function SignUp() {
 
         let messageValidator = res.data.message;
 
-        //Funcion para el sweetAlert
 
         if (res.data.from === "validator") {
             messageValidator.forEach(e => {
@@ -110,13 +110,11 @@ function SignUp() {
 
                 <button type="submit" className="btnF">Submit</button>
 
-                <div className='d-flex justify-content-center p-3'>
-                    <GoogleSignUp />
-                </div>
-
-
-
             </form>
+
+            <div className='d-flex justify-content-center p-3'>
+                    <GoogleSignUp/>
+                </div>
         </div>
     )
 }

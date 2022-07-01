@@ -35,7 +35,7 @@ const usersControllers = {
                     res.json({
                         success: true,
                         from: from,
-                        message: `check ${email} and finish your registered!`
+                        message: `Check ${email} and finish your registered!`
                     })
                 } else { //si la data viene de facebook o google
                     await newUser.save()
@@ -43,7 +43,7 @@ const usersControllers = {
                     res.json({
                         success: true,
                         from: from,
-                        message: `you registered by ${from}! check your ${email} and finish your registered!`
+                        message: `You has been registered by ${from}! check your ${email} and finish your registered!`
                     })
                 }
             } else { //si existe el usuario, significa que al menos tiene un registro

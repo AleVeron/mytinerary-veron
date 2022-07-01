@@ -1,27 +1,48 @@
-import React, { useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import usersActions from '../../redux/actions/usersActions';
+import axios from "axios";
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 
 
 export default function GoogleSignUp() {
+
     const dispatch = useDispatch();
+
+    const [country, setCountry] = useState({})
+
+    console.log(country);
+
+    useEffect(() => {
+        axios.get("https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572")
+        .then(response => {
+            const apiResponse = response;
+            setCountry(apiResponse)
+        })
+    }, []);
 
 
     async function handleCallbackResponse(response) {
         console.log(response.credential);
         let userObject = jwt_decode(response.credential);
         console.log(userObject);
-        dispatch(usersActions.signUpUsers({
-            fullName: userObject.given_name, 
-            photoUser: userObject.picture, 
-            email: userObject.email, 
+    let res = await dispatch(usersActions.signUpUsers({
+            fullName: userObject.given_name,
+            photoUser: userObject.picture,
+            email: userObject.email,
             password: userObject.sub,
-            country: "argelia",
+            country: country.data.country_name,
             from: 'google'
         }))
+        if (res.data.success) {
+            toast.success(res.data.message)
+          } else {
+            toast.error(res.data.message);
+          }
     }
+    
 
     useEffect(() => {
         /* global google */
