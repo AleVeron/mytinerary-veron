@@ -17,8 +17,7 @@ const validator = (req, res, next) => {
       .trim()
       .required(),
     country: joi.string()
-      .trim()
-      .required(),
+      .trim(),
     email: joi.string().email({ minDomainSegments: 2 })
       .required()
       .messages({

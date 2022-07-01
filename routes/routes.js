@@ -44,7 +44,7 @@ const userValidator = require('../config/validator')
 /* ROUTES USERLOG */
 
 const userControllers = require('../controllers/usercontrollers')
-const { signUpUsers, loginUser } = userControllers
+const { signUpUsers, loginUser, verifyEmail } = userControllers
 
 Router.route('/signUp')
     .post(userValidator,signUpUsers)
@@ -52,6 +52,9 @@ Router.route('/signUp')
 
 Router.route('/login')
     .post(loginUser)
+
+Router.route('/verify/:string')
+    .get(verifyEmail)    
 
 
 module.exports = Router

@@ -1,5 +1,7 @@
 const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
+const crypto = require('crypto')
+const sendVerificationMail = require('./sendVerificationMail')
 
 
 const usersControllers = {
@@ -14,31 +16,34 @@ const usersControllers = {
 
             if (!userExist) { //si NO existe el usuario
                 const hashWord = bcryptjs.hashSync(password, 10) //encripto la contraseña
-
+                const verification = false; //obliga al usuario a verificar (pasarlo a true)
+                const uniqueString = crypto.randomBytes(15).toString('hex') //Metoxo hexadecimal de crypto
                 const newUser = await new User({  //Creo el nuevo usuario con estos datos
                     fullName,
                     photoUser,
                     country,
                     email,
                     password: [hashWord],
-                    from: [from]
+                    from: [from],
+                    verification,
+                    uniqueString : uniqueString
                 })
                 if (from === "form-Signup") { //si la data viene del formulario
-                    //ACLARACION: ahora el if/else tienen la misma data
                     //pero van a cambiar cuando enviemos correo de verificacion
                     await newUser.save()
+                    await sendVerificationMail(email, uniqueString)
                     res.json({
                         success: true,
                         from: from,
                         message: `check ${email} and finish your registered!`
                     })
                 } else { //si la data viene de facebook o google
-                    /* newUser.verification = true */
                     await newUser.save()
+                    await sendVerificationMail(email, uniqueString)
                     res.json({
                         success: true,
                         from: from,
-                        message: `you registered by ${from}! now try to LOG IN!`
+                        message: `you registered by ${from}! check your ${email} and finish your registered!`
                     })
                 }
             } else { //si existe el usuario, significa que al menos tiene un registro
@@ -62,6 +67,7 @@ const usersControllers = {
                     //pero ya tiene AL MENOS UN registro (facebook y form)
                     const hashWord = bcryptjs.hashSync(password, 10)
                     userExist.password.push(hashWord)
+                    userExist.verification = true
                     userExist.from.push(from)
                     await userExist.save()
                     res.json({
@@ -73,7 +79,7 @@ const usersControllers = {
             }
         } catch (error) {
 
-            res.json({ success: false, message: "Something went wrong, please try again in a few minutes" }) //CAPTURA EL ERROR
+            res.json({ success: false, message: "CATCH ERROR", console:console.log(error) }) //CAPTURA EL ERROR
         }
     },
 
@@ -147,10 +153,25 @@ const usersControllers = {
         res.json({
           success: false,
           from: from,
-          message: 'ERROR'
+          message: 'CATCH ERROR', console:console.log(error)
         })
       }
-    }
+    },
+
+    verifyEmail: async (req, res) => {
+      const {string} = req.params
+      const user = await User.findOne({uniqueString: string})
+      //console.log(user)
+      if (user) {
+          user.verification = true
+          await user.save()
+          res.redirect("http://localhost:3000/signIn")
+      }
+      else {res.json({
+          success: false,
+          message: `email has not account yet!`})
+      }
+  }
 
 }
 

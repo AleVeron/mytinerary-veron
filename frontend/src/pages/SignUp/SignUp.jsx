@@ -4,6 +4,7 @@ import usersActions from '../../redux/actions/usersActions'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify';
+import GoogleSignUp from '../../components/GoogleSignUp/GoogleSignUp'
 
 
 function SignUp() {
@@ -66,9 +67,11 @@ function SignUp() {
 
     return (
 
-        
+
 
         <div className='signIn d-flex flex-column justify-content-center'>
+
+
 
             <form onSubmit={handleSubmit} className="container col-10 col-md-6 col-xl-4">
 
@@ -106,6 +109,12 @@ function SignUp() {
 
 
                 <button type="submit" className="btnF">Submit</button>
+
+                <div className='d-flex justify-content-center p-3'>
+                    <GoogleSignUp />
+                </div>
+
+
 
             </form>
         </div>
