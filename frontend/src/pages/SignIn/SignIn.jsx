@@ -2,7 +2,7 @@ import './signIn.css'
 import { useDispatch, useSelector } from 'react-redux'
 import usersActions from '../../redux/actions/usersActions'
 import { toast } from 'react-toastify';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
 import GoogleSignIn from '../../components/GoogleSignIn/GoogleSignIn'
 
@@ -22,12 +22,12 @@ function SignIn() {
             password: event.target[1].value,
             from: "form-SignIn"
         }
-        
+
 
 
         //Despacho esta informacion (userData) hacia mi action y espero su return para utilizarlo
         let res = await dispatch(usersActions.loginUsers(userSignIn))
-      console.log(res);
+        console.log(res);
 
         //Funcion para la alerta
         if (res.data.success) {
@@ -57,21 +57,24 @@ function SignIn() {
                 </div>
 
 
-                <div className='d-flex justify-content-between col-8'>
-                    <button className='buttonLog'>
-                        <img className='logIcon' src='https://cdn-icons-png.flaticon.com/512/124/124010.png' alt=''/>
-                    </button>
-                    <button type="submit" className="btnF">Log In</button>
-                    <button className='buttonLog'>
-                        <img className='logIcon' src='https://cdn-teams-slug.flaticon.com/google.jpg' alt=''/>
-                    </button>
+                <div className='d-flex align-items-center justify-content-around flex-column col-8'>
+
+                    <button type="submit" className="btnF col-6">Log In</button>
+
+                    <div className='d-flex justify-content-center p-3 '>
+                <GoogleSignIn />
+            </div>
+
+
                 </div>
             </form>
-            <GoogleSignIn/>
+
             <div className='d-flex flex-column justify-content-center logIn col-10 col-md-6 col-xl-6 container pb-3'>
                 <h4>Don't have an account yet?</h4>
                 <Link className="dropdown-item text-center signLink text-light" to={"/signUp"}>Sign up</Link>
             </div>
+
+
         </div>
     )
 }

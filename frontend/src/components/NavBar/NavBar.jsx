@@ -11,7 +11,7 @@ function NavBar() {
 
 
     const logIn = useSelector(store => store.userReducer.user)
-    console.log(logIn);
+
     const dispatch = useDispatch()
 
 

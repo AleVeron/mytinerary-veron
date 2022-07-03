@@ -112,16 +112,17 @@ function SignUp() {
 
                 <button type="submit" className="btnF">Submit</button>
 
+                <div className='d-flex flex-column justify-content-center'>
+                <h4 className='text-light'>Already have an account?</h4>
+                <Link className="dropdown-item text-center text-light" to={"/signIn"}>Sign in</Link>
+            </div>
+
             </form>
 
             <div className='d-flex justify-content-center p-3 '>
                 <GoogleSignUp />
             </div>
 
-            <div className='d-flex flex-column justify-content-center'>
-                <h4>Already have an account?</h4>
-                <Link className="dropdown-item text-center " to={"/signIn"}>Sign in</Link>
-            </div>
 
         </div>
     )

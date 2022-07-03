@@ -22,11 +22,10 @@ const usersActions = {
   },
 
   loginUsers: (userSignIn) => {
-    console.log(userSignIn);
+    
     return async (dispatch, getState) => {
       try {
         const res = await axios.post('http://localhost:4000/api/login', {userSignIn})
-        console.log(res.data)
         if (res.data.success) {
           localStorage.setItem('token', res.data.response.token)
           dispatch({

@@ -4,7 +4,7 @@ import usersActions from '../../redux/actions/usersActions';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { Navigate } from 'react-router-dom';
+
 
 
 export default function GoogleSignUp() {

@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
 const sendVerificationMail = require('./sendVerificationMail')
 const jwt = require('jsonwebtoken')
-const { log } = require('console')
+
 
 
 const usersControllers = {
