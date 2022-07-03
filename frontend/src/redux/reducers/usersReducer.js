@@ -1,31 +1,45 @@
 const initialState = {
-    user: {
-        message: '',
-        success: false
+    user: {},
+    notification: {
+      view: false,
+      message: '',
+      success: false
     },
-    notify: {
-        message: '',
-        success: false
-    }
-}
-
-const usersReducer = (state = initialState, action) => {
-
+    messageUserLogIn: null,
+  
+  }
+  
+  const userReducer = (state = initialState, action) => {
+  
     switch (action.type) {
-
-        case "MESSAGE":
-            return {
-                ...state,
-                notify: action.payload
+      case 'message':
+        return {
+          ...state,
+          notification: action.payload,
+        }
+      case 'user':
+        return {
+          ...state,
+          user: action.payload
+        }
+      case 'MESSAGE_USER':
+        return {
+          ...state,
+          messageUserLogIn: action.payload
+        }
+        case 'SIGN_OUT':
+          localStorage.removeItem("token");
+          return {
+            user: {
+              token: null,
+              fullName: null,
+              photoUser: null,
+              _id: null,
             }
-        case "USER":
-            return {
-                ...state,
-                user: action.payload
-            }
-        default:
-            return state
+          };
+          
+      default:
+        return state
     }
-}
-
-export default usersReducer
+  }
+  export default userReducer

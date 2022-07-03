@@ -38,7 +38,7 @@ const sendVerificationMail = async (email, string) => { //depende del mail que i
     to: email,
     subject: 'verify account',
     html: `
-            <a href=http://localhost:4000/api/verify/${string}>CLICK!</a>
+            <a href=http://localhost:4000/api/verify/${string}>CLICK! and happy hacking</a>
             <h3>to confirm!</h3>`
   }
 

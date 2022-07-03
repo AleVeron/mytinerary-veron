@@ -14,7 +14,7 @@ import SignUp from './pages/SignUp/SignUp'
 import SignIn from './pages/SignIn/SignIn';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-
+import usersActions from './redux/actions/usersActions';
 
 
 
@@ -23,7 +23,14 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     dispatch(citiesActions.getCities())
+
+    if (localStorage.getItem('token') !== null) {
+      const token = localStorage.getItem('token')
+      dispatch(usersActions.verifyToken(token))
+    }
+
   }, [])
 
   return (
@@ -40,7 +47,7 @@ function App() {
           pauseOnFocusLoss
           draggable
           pauseOnHover />
-          
+
         <NavBar />
 
         <Routes>

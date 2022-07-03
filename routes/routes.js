@@ -1,4 +1,7 @@
 const Router = require("express").Router();
+const passport = require('../config/passport')
+
+
 
 /* ROUTES CITIES */
 
@@ -44,11 +47,10 @@ const userValidator = require('../config/validator')
 /* ROUTES USERLOG */
 
 const userControllers = require('../controllers/usercontrollers')
-const { signUpUsers, loginUser, verifyEmail } = userControllers
+const { signUpUsers, loginUser, verifyEmail, verifyToken } = userControllers
 
 Router.route('/signUp')
     .post(userValidator,signUpUsers)
-
 
 Router.route('/login')
     .post(loginUser)
@@ -56,5 +58,7 @@ Router.route('/login')
 Router.route('/verify/:string')
     .get(verifyEmail)    
 
+Router.route('/logintoken')
+.get(passport.authenticate('jwt', { session: false }), verifyToken)
 
 module.exports = Router

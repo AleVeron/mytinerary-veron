@@ -1,7 +1,3 @@
-.signIn{
-    height: 80.5vh;
-    background-color: rgba(137, 43, 226, 0.623);
-}
 .logIcon{
     width: 50px;
     height: 50px;
@@ -14,3 +10,16 @@
     border:none;
     border-radius: 12px;
 }
+.logIn{
+    background-color: rgba(18, 18, 18, 0.724);
+    border-radius: 10px;
+}
+
+.logIn label{
+    color: white;
+}
+
+.logIn h4 {
+    color: white;
+}
+

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import GoogleSignUp from '../../components/GoogleSignUp/GoogleSignUp'
+import { Link } from "react-router-dom"
 
 
 
@@ -42,13 +43,15 @@ function SignUp() {
             from: "form-Signup"
         }
 
-        //Despacho esta informacion (userData) hacia mi action para pasarselo a mi controlador
+
+        //Despacho esta informacion (userData) hacia mi action para pasarselo a mi controlador y tambien usar sus mensajes
         let res = await dispatch(usersActions.signUpUsers(userData))
 
-        console.log(res);
+       
 
+        //Declaro el mensaje del validator con la res de mi userActions.signUpUsers
         let messageValidator = res.data.message;
-
+    
 
         if (res.data.from === "validator") {
             messageValidator.forEach(e => {
@@ -72,15 +75,14 @@ function SignUp() {
         <div className='signIn d-flex flex-column justify-content-center'>
 
 
+            <form onSubmit={handleSubmit} className="signUpform d-flex flex-column align-items-center container col-10 mt-2 col-md-6 col-xl-4 pt-4 pb-4">
 
-            <form onSubmit={handleSubmit} className="container col-10 col-md-6 col-xl-4">
-
-                <div className="mb-3">
+                <div className="mb-3 col-8">
                     <label htmlFor="exampleInputFullName" className="form-label">Full Name</label>
                     <input required type="text" className="form-control" id="exampleInputFullName" />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 col-8">
                     <label htmlFor="exampleInputFullName" className="form-label">Country</label>
                     <select className='container' name="country" id="country">
                         {country.map((country, index) => (
@@ -91,18 +93,18 @@ function SignUp() {
                     </select>
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 col-8">
                     <label htmlFor="exampleInputPhoto" className="form-label">PhotoUser</label>
                     <input type="text" className="form-control" id="exampleInputPhoto" />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 col-8">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
                     <div id="email" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 col-8">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input type="password" className="form-control" id="exampleInputPassword1" />
                 </div>
@@ -112,9 +114,15 @@ function SignUp() {
 
             </form>
 
-            <div className='d-flex justify-content-center p-3'>
-                    <GoogleSignUp/>
-                </div>
+            <div className='d-flex justify-content-center p-3 '>
+                <GoogleSignUp />
+            </div>
+
+            <div className='d-flex flex-column justify-content-center'>
+                <h4>Already have an account?</h4>
+                <Link className="dropdown-item text-center " to={"/signIn"}>Sign in</Link>
+            </div>
+
         </div>
     )
 }
