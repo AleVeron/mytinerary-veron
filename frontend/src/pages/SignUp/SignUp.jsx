@@ -94,7 +94,7 @@ function SignUp() {
                 </div>
 
                 <div className="mb-3 col-8">
-                    <label htmlFor="exampleInputPhoto" className="form-label">PhotoUser</label>
+                    <label htmlFor="exampleInputPhoto" className="form-label">PhotoUser URL</label>
                     <input type="text" className="form-control" id="exampleInputPhoto" />
                 </div>
 

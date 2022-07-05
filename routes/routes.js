@@ -61,4 +61,22 @@ Router.route('/verify/:string')
 Router.route('/logintoken')
 .get(passport.authenticate('jwt', { session: false }), verifyToken)
 
+/* ROUTES ACTIVITIES */
+
+const activitiesControllers = require('../controllers/activitiescontrollers');
+const {getActivities,uploadActivity,deleteAct,modifyAct,oneActivity,findActFromTin} = activitiesControllers
+
+Router.route('/activities')
+.get(getActivities)
+.post(uploadActivity)
+
+Router.route('/activities/:id')
+.delete(deleteAct)
+.put(modifyAct)
+.get(oneActivity)
+
+Router.route('/activitiesFromTinerary')
+.post(findActFromTin)
+
+
 module.exports = Router

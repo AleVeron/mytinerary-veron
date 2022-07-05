@@ -6,6 +6,7 @@
 
 .navbar a {
     color: white !important;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .dropdown-menu {
@@ -17,6 +18,7 @@
     width: 45px;
     height: 45px;
     border-radius: 150px;
+    object-fit: cover;
 }
 
 .dropLink:hover{

@@ -1,7 +1,23 @@
 import Accordion from "./Accordion";
+import activitiesActions from "../../redux/actions/activitesActions";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 
 export default function Itinerary({ item }) {
+
+    
+
+    const dispatch = useDispatch()
+
+    async function getActions (){
+        let actions = await dispatch(activitiesActions?.findActFromTin(item._id))
+        console.log(actions);
+    }
+    useEffect(() => {
+       getActions()
+    }, [])
+    
     return (
 
         <div className="container card mb-3 col-10 col-sm-12 col-md-8">

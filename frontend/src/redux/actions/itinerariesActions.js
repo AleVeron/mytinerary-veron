@@ -9,6 +9,8 @@ const itinerariesActions = {
             dispatch({type : 'FINDITINERARYBYCITY', payload: res.data.response})
         }
     }
+
+
 }
 
 export default itinerariesActions;

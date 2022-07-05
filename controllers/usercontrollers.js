@@ -12,6 +12,8 @@ const usersControllers = {
 
     let { fullName, email, password, from, photoUser, country } = req.body.userData
 
+
+
     try {
 
       const userExist = await User.findOne({ email }) //busco si el usuario existe por email
@@ -30,7 +32,7 @@ const usersControllers = {
           verification,
           uniqueString: uniqueString
         })
-        if (from === "form-SignIn") { //si la data viene del formulario
+        if (from === "form-Signup") { //si la data viene del formulario
           //pero van a cambiar cuando enviemos correo de verificacion
           await newUser.save()
           await sendVerificationMail(email, uniqueString)
@@ -41,11 +43,11 @@ const usersControllers = {
           })
         } else { //si la data viene de facebook o google
           await newUser.save()
-          await sendVerificationMail(email, uniqueString)
+          /* await sendVerificationMail(email, uniqueString) */
           res.json({
             success: true,
             from: from,
-            message: `You has been registered by ${from}! check your ${email} and finish your registered!`
+            message: `You has been registered by ${from}! logIn now!`
           })
         }
       } else { //si existe el usuario, significa que al menos tiene un registro
@@ -151,7 +153,7 @@ const usersControllers = {
           }
         } else { //si fue registrado por una que no sea el formulario (google)
 
-          if (loginUser.verification) {   //Chequeo que el loginUser llegue verificado
+          /* if (loginUser.verification) {  */  //Chequeo que el loginUser llegue verificado
 
             if (checkedWord.length > 0) {     //Compruebo que una contraseña hasheada sea igual a una de mi base de datos
 
@@ -165,6 +167,7 @@ const usersControllers = {
               }
 
               console.log(userData);
+              
               const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 }) //Creo el token
               await loginUser.save()
               /* console.log(token); */
@@ -177,7 +180,8 @@ const usersControllers = {
               })
             }
 
-          }
+
+          /* } */
 
         }
 

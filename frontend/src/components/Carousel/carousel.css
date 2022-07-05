@@ -49,10 +49,12 @@
   bottom: 150px;
   border-radius: 5px;
   padding: 2px;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 .carouselTitle{
+  font-family: 'Shadows Into Light', cursive;
   color: white;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 550;
+  font-weight: bold;
+  
 }

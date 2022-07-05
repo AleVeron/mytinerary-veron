@@ -17,6 +17,7 @@ const citiesControllers = {
     },
     getOneCity: async(req, res) => {
         const id = req.params.id
+        console.log(id);
         let city
         let error = null
         try{
@@ -40,7 +41,7 @@ const citiesControllers = {
                 name:name,
                 country:country,
                 description: description,
-                image: image
+                image: image      
             }).save()
         }catch(err){error = err}
         res.json({

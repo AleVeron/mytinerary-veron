@@ -5,14 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import citiesActions from "../../redux/actions/citiesActions";
 
 
+
 function Cities() {
 
     
 
     const [input, setInput] = useState('')
 
-    //Traigo toda mi app con useSelector
-    // const cities = useSelector((store) => store.citiesReducer.cities)
 
     const dispatch = useDispatch();
 
@@ -22,6 +21,7 @@ function Cities() {
 
     //Traigo mis ciudades filtradas con useSelector
     const filteredCities = useSelector((store) => store.citiesReducer.cityFilter)
+    
 
 
     const handlechange = (e) => {
@@ -35,7 +35,7 @@ function Cities() {
 
             <div className="d-flex gap-3 p-5 flex-column flex-md-row align-items-center justify-content-around">
 
-                <h1 className="citiesTitle">Search for your favorite city</h1>
+                <h1 className="citiesTitle col-lg-4">Select your adventure!</h1>
 
 
                 <input

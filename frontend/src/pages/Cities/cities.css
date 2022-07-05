@@ -5,17 +5,19 @@
     width: 300px;
     box-shadow: -5px 5px 10px black;
     border-radius: 10px;
+    border: rgb(132, 26, 132) solid 3px;
 }
 .error{
     height: 100vh;
     background-color: transparent;
 }
 .search:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
+    border: rgb(132, 26, 132) solid 3px;
 }
 .citiesTitle{
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 550;
+    font-weight: bold;
     color: black;
+    font-family: 'Shadows Into Light', cursive;
 }
 

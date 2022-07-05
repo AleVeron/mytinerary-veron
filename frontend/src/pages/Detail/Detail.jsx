@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import citiesActions from "../../redux/actions/citiesActions";
 import itinerariesActions from "../../redux/actions/itinerariesActions";
 import Itinerary from "../../components/Itinerary/Itinerary";
+import activitiesActions from "../../redux/actions/activitesActions";
 
 
 export default function Detail() {
@@ -14,14 +15,19 @@ export default function Detail() {
 
     const dispatch = useDispatch()
 
+
     useEffect(() => {
         dispatch(citiesActions.getOneCity(id))
         dispatch(itinerariesActions.getItinerariesByCity(id))
     }, [])
 
 
+    
+
+    
 
     const itinerary = useSelector(store => store.itinerariesReducer.itineraries)
+
 
 
     const filterCity = useSelector(store => store.citiesReducer.oneCity)
@@ -40,12 +46,13 @@ export default function Detail() {
             </div>
 
 
+            {/* Si poseo un itinerario se imprime el componente itinerary, sino un mensaje de not found */}
             {itinerary.length > 0 ? itinerary.map((item, index) =>
 
-                <Itinerary item={item} key={item._id}/>
+                <Itinerary item={item} key={item._id} />
             ) : <div className="ityNotfound"><h1>Not found itinerary</h1></div>}
 
-                <Link className="nav-link active btnD btnF m-3" to={"/cities"}>Go back</Link>
+            <Link className="nav-link active btnD btnF m-3" to={"/cities"}>Go back</Link>
 
         </div>
 

@@ -24,7 +24,6 @@ export default function GoogleSignUp() {
 
 
     async function handleCallbackResponse(response) {
-        console.log(response.credential);
         let userObject = jwt_decode(response.credential);
         console.log(userObject);
         let res = await dispatch(usersActions.signUpUsers({
@@ -33,7 +32,7 @@ export default function GoogleSignUp() {
             email: userObject.email,
             password: userObject.sub,
             country: country.data.country_name,
-            from: 'google'
+            from: 'google',
         }))
         if (res.data.success) {
             toast.success(res.data.message)

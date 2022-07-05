@@ -4,6 +4,7 @@ import usersActions from '../../redux/actions/usersActions';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 export default function GoogleSignUp() {
@@ -21,9 +22,31 @@ export default function GoogleSignUp() {
             password: userObject.sub,
             from: 'google'
         }))
-      
+
         if (res.data.success) {
-            toast.success(res.data.message)
+            /* toast.success(res.data.message) */
+
+            let timerInterval
+            Swal.fire({
+                title: (res.data.message),
+                timer: 2500,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
             navigate('/')
         } else {
             toast.error(res.data.message);

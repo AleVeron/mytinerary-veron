@@ -1,10 +1,11 @@
 import './signIn.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import usersActions from '../../redux/actions/usersActions'
 import { toast } from 'react-toastify';
 import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
 import GoogleSignIn from '../../components/GoogleSignIn/GoogleSignIn'
+import Swal from 'sweetalert2';
 
 function SignIn() {
 
@@ -31,7 +32,29 @@ function SignIn() {
 
         //Funcion para la alerta
         if (res.data.success) {
-            toast.success(res.data.message)
+
+            let timerInterval
+            Swal.fire({
+                title: (res.data.message),
+                timer: 2500,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+            /* toast.success(res.data.message) */
             navigate('/')
         } else {
             toast.error(res.data.message)
@@ -62,8 +85,8 @@ function SignIn() {
                     <button type="submit" className="btnF col-6">Log In</button>
 
                     <div className='d-flex justify-content-center p-3 '>
-                <GoogleSignIn />
-            </div>
+                        <GoogleSignIn />
+                    </div>
 
 
                 </div>

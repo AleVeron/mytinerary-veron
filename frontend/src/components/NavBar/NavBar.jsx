@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import usersActions from "../../redux/actions/usersActions";
 import { toast } from "react-toastify";
-
+import Swal from 'sweetalert2';
 
 
 function NavBar() {
@@ -13,7 +13,6 @@ function NavBar() {
     const logIn = useSelector(store => store.userReducer.user)
 
     const dispatch = useDispatch()
-
 
 
     return (
@@ -42,12 +41,33 @@ function NavBar() {
                                         <img className="logoSign" src="http://cdn.onlinewebfonts.com/svg/img_311846.png" alt="icon" />}
                                 </a>
                                 {logIn?.success ? <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    {/* <button  >Log Out</button> */}
+
                                     <Link onClick={() => {
-                                        toast(`Good bye ${logIn.user.fullName} 😥😥`)
+                                        /* toast(`Good bye ${logIn.user.fullName} 😥😥`) */
+                                        let timerInterval
+                                        Swal.fire({
+                                            title: (`Good bye ${logIn.user.fullName} 😥😥`),
+                                            timer: 1500,
+                                            timerProgressBar: true,
+                                            didOpen: () => {
+                                                Swal.showLoading()
+                                                const b = Swal.getHtmlContainer().querySelector('b')
+                                                timerInterval = setInterval(() => {
+                                                    b.textContent = Swal.getTimerLeft()
+                                                }, 100)
+                                            },
+                                            willClose: () => {
+                                                clearInterval(timerInterval)
+                                            }
+                                        }).then((result) => {
+                                            /* Read more about handling dismissals below */
+                                            if (result.dismiss === Swal.DismissReason.timer) {
+                                                console.log('I was closed by the timer')
+                                            }
+                                        })
                                         dispatch(usersActions.signOut())
                                     }}
-                                        className=" dropdown-item text-center text-lg-start" to={"/"}>LogOut</Link>
+                                        className="dropLink dropdown-item text-center text-lg-start" to={"/"}>LogOut</Link>
 
                                 </ul> :
 
