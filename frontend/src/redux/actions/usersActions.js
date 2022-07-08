@@ -1,4 +1,5 @@
 import axios from "axios";
+let urlLocalHost = 'http://localhost:4000/'
 
 const usersActions = {
 
@@ -6,7 +7,7 @@ const usersActions = {
   signUpUsers: (userData) => {
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post(`http://localhost:4000/api/signUp`, { userData })
+        const res = await axios.post(urlLocalHost + `api/signUp`, { userData })
         console.log(res);
         dispatch({
           type: 'MESSAGE',
@@ -26,7 +27,7 @@ const usersActions = {
     
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post('http://localhost:4000/api/login', {userSignIn})
+        const res = await axios.post(urlLocalHost + 'api/login', {userSignIn})
         if (res.data.success) {
           localStorage.setItem('token', res.data.response.token)
           dispatch({
@@ -46,7 +47,7 @@ const usersActions = {
   verifyToken: (token) => {
     return async (dispatch, getState) => {
       try {
-        const user = await axios.get('http://localhost:4000/api/logintoken', {
+        const user = await axios.get(urlLocalHost + 'api/logintoken', {
           headers: {
             'Authorization': 'Bearer ' + token
           }
@@ -72,7 +73,6 @@ const usersActions = {
   signOut: () => {
     return (dispatch, getState) => {
       dispatch({ type: "SIGN_OUT" ,
-      
     });
     };
   },

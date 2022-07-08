@@ -8,6 +8,19 @@
   background-size: cover;
 }
 
+.bordes{
+  border-radius: 20px !important; 
+}
+
+.tineraryP{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 18px;
+}
+.tineraryTitle{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 30px;
+}
+
 .imgCubo {
   display: block;
   width: 100%;
@@ -15,10 +28,6 @@
   object-fit: cover;
 }
 
-/* .cubo {
-  margin-top: 100px;
-  margin-left: 50px;
-} */
 
 .cubeTitle {
   background-color: rgba(215, 204, 217, 0.548);

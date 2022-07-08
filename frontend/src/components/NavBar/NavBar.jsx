@@ -44,28 +44,14 @@ function NavBar() {
                                 {logIn?.success ? <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                     <Link onClick={() => {
-                                        /* toast(`Good bye ${logIn.user.fullName} 😥😥`) */
-                                        let timerInterval
                                         Swal.fire({
-                                            title: (`Good bye ${logIn.user.fullName} 😥😥`),
-                                            timer: 1500,
-                                            timerProgressBar: true,
-                                            didOpen: () => {
-                                                Swal.showLoading()
-                                                const b = Swal.getHtmlContainer().querySelector('b')
-                                                timerInterval = setInterval(() => {
-                                                    b.textContent = Swal.getTimerLeft()
-                                                }, 100)
-                                            },
-                                            willClose: () => {
-                                                clearInterval(timerInterval)
-                                            }
-                                        }).then((result) => {
-                                            /* Read more about handling dismissals below */
-                                            if (result.dismiss === Swal.DismissReason.timer) {
-                                                console.log('I was closed by the timer')
-                                            }
-                                        })
+                                            title: 'LogOut!',
+                                            text: `Good Bye ${logIn?.user.fullName}`,
+                                            imageUrl: `${logIn?.user.photoUser}`,
+                                            imageWidth: 200,
+                                            imageHeight: 200,
+                                            imageAlt: `${logIn?.user.fullName}`,
+                                          })
                                         dispatch(usersActions.signOut())
                                     }}
                                         className="dropLink dropdown-item text-center text-lg-start" to={"/"}>LogOut</Link>

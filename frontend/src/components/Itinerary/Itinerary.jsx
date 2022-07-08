@@ -13,6 +13,8 @@ export default function Itinerary({ item, cityId }) {
 
     let cityIdf = cityId
 
+
+
     const [activities, setActivites] = useState()
     const[reload, setReload] = useState(false)
     const[comment, setComment] = useState()
@@ -63,18 +65,17 @@ export default function Itinerary({ item, cityId }) {
             <div className="card-body d-flex flex-md-row flex-column align-items-center detailCard">
                 <div>
                     <p>{item.userName}</p>
-                    <img src={item.userPic} alt={item.userName} className="imgTinerary" />
+                    <img src={item.userPic} alt={item.userName} className="imgTinerary"/>
                 </div>
 
 
                 <div className="container d-flex flex-column justify-content-around flex-wrap align-items-center ">
-                    <h2>{item.title}</h2>
-                    <p>Price: {item.price}</p>
-                    <p>Duration: {item.duration}</p>
-
+                    <h2 className="tineraryTitle">{item.title}</h2>
+                    <p className="tineraryP">Price: {item.price}</p>
+                    <p className="tineraryP">Duration: {item.duration}</p>
                     <button onClick={getLikes}>🧡</button>
-                    <p>{item?.likes.length}</p>
-                    <p>{item.hashtag}</p>
+                    <p className="tineraryP">{item?.likes.length}</p>
+                    <p className="tineraryP">{item.hashtag}</p>
                 </div>
             </div>
 

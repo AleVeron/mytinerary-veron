@@ -4,6 +4,7 @@ import usersActions from '../../redux/actions/usersActions';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { CLIENT_ID } from '../../consts/google';
 
 
 
@@ -46,7 +47,7 @@ export default function GoogleSignUp() {
     useEffect(() => {
         /* global google */
         google.accounts.id.initialize({
-            client_id: '996401953184-9vvhl0ma5mpqdhl69squ1l2t2enlg56j.apps.googleusercontent.com',
+            client_id: CLIENT_ID,
             callback: handleCallbackResponse
         });
 
