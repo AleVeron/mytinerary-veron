@@ -20,7 +20,7 @@ const itinerariesControllers = {
         let itinerary
         let error = null
         try {
-            itinerary = await Itinerary.findOne({ _id: id })
+            itinerary = await Itinerary.findOne({ _id: id }).populate('comments.user', { fullName: 1, photoUser: 1 })
         } catch (err) {
             error = err
             console.log(error)
@@ -111,80 +111,44 @@ const itinerariesControllers = {
     },
     getItinerariesByCity: async (req, res) => {
         const id = req.params.id
-        let itineraries
+        let itinerary
         let error = null
         try {
-            itineraries = await Itinerary.find({ cityId: id }).populate("cityId")
+          itinerary = await Itinerary.find({ cityId: id})
         } catch (err) {
-            error = err
+          error = err
         }
         res.json({
-            response: error ? 'ERROR' : itineraries,
-            success: error ? false : true,
-            error: error
+          response: error ? 'ERROR' : (itinerary),
+          success: error ? false : true,
+          error: error
         })
-    },
+      },
 
     /* Like itineraries and comentaries */
 
-    likeItinerary: (req, res) => {
-        Itinerary.findOne({ _id: req.params.id }).then((itinerary) => {
-            if (itinerary.likes.includes(req.user._id)) {
-                Itinerary.findOneAndUpdate(
-                    { _id: req.params.id },
-                    { $pull: { likes: req.user._id } },
-                    { new: true }
-                ).then((newItinerary) =>
-                    res.json({ response: newItinerary.likes, success: true })
-                ).catch(err => console.log(err));
-            } else {
-                Itinerary.findOneAndUpdate({ _id: req.params.id }, { $push: { likes: req.user._id } }, { new: true })
-                    .then(newItinerary => res.json({ response: newItinerary.likes, success: true }))
-                    .catch(err => console.log(err));
-            }
-        }).catch(err => res.json({ response: req.params.id, success: false }));
+    likeDislike: async (req, res) => {
+        const id = req.params.id
+        const user = req.user.id  
+ 
+
+        await Itinerary.findOne({ _id: id })
+
+            .then((tinerary) => {
+                
+                if (tinerary.likes.includes(user)) {
+                    Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: user } }, { new: true })//PULL QUITA, SACA
+                        .then((response) => res.json({ success: true, response: response.likes }))
+                        .catch((error) => console.log(error))
+                } else {
+                    Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: user } }, { new: true })//PUSH AGREGA
+                        .then((response) => res.json({ success: true, response: response.likes }))
+                        .catch((error) => console.log(error))
+                }
+            })
+            .catch((error) => res.json({ success: false, response: error }))
     },
-    modifyComment: async (req, res) => {
-        switch (req.body.type) {
-            case "addComment":
-                try {
-                    let newComment = await Itinerary.findOneAndUpdate({ _id: req.params.id }, { $push: { comments: { comment: req.body.comment, user: req.user._id } } }, { new: true }).populate('comments.user')
-                    if (newComment) {
-                        res.json({ success: true, response: newComment.comments })
-                    } else {
-                        throw new Error("Problem posting comment")
-                    }
-                } catch (err) {
-                    res.json({ response: err.message, success: false })
-                }
-                break;
-            case "editComment":
-                try {
-                    let updatedComment = await Itinerary.findOneAndUpdate({ "comments._id": req.params.id }, { $set: { "comments.$.comment": req.body.comment } }, { new: true }).populate('comments.user')
-                    if (updatedComment) {
-                        res.json({ response: updatedComment.comments, success: true })
-                    } else {
-                        throw new Error("Problem edting comment")
-                    }
-                } catch (err) {
-                    res.json({ response: err, success: false })
-                }
-                break;
-            case "deleteComment":
-                console.log(req.body)
-                try {
-                    let deletedComment = await Itinerary.findOneAndUpdate({ "comments._id": req.body.commentId }, { $pull: { comments: { _id: req.body.commentId } } }).populate('comments.user')
-                    if (deletedComment) {
-                        res.json({ success: true })
-                    } else {
-                        throw new Error("Problem deleting comment")
-                    }
-                } catch (err) {
-                    res.json({ success: false, response: err })
-                }
-                break;
-        }
-    }
+
 
 }
 

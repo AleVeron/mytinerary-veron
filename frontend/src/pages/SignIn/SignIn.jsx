@@ -28,7 +28,7 @@ function SignIn() {
 
         //Despacho esta informacion (userData) hacia mi action y espero su return para utilizarlo
         let res = await dispatch(usersActions.loginUsers(userSignIn))
-        console.log(res);
+       /*  console.log(res); */
 
         //Funcion para la alerta
         if (res.data.success) {
@@ -36,7 +36,7 @@ function SignIn() {
             let timerInterval
             Swal.fire({
                 title: (res.data.message),
-                timer: 2500,
+                timer: 1000,
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading()

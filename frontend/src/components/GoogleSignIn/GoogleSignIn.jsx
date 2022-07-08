@@ -29,7 +29,7 @@ export default function GoogleSignUp() {
             let timerInterval
             Swal.fire({
                 title: (res.data.message),
-                timer: 2500,
+                timer: 1000,
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading()

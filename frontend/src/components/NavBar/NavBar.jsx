@@ -34,6 +34,7 @@ function NavBar() {
                                 <Link className="nav-link active" to={"/cities"}>CITIES</Link>
                             </li>
                         </ul>
+
                         <ul className="navbar-nav mb-lg-0 me-lg-5 pe-lg-5">
                             <li className="nav-item dropdown">
                                 <a className="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

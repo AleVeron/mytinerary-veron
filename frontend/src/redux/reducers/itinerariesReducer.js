@@ -1,5 +1,6 @@
 const initialState = {
-    itineraries: []
+    itineraries: [],
+    getItinerariesByCity: []
 }
 
 const itinerariesReducer = (state = initialState, action) => {
@@ -10,6 +11,13 @@ const itinerariesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 itineraries: action.payload
+            }
+        case 'GET_ITINERARIES_BY_CITY':
+
+            return {
+                ...state,
+                getItinerariesByCity: action.payload
+
             }
         default:
             return state

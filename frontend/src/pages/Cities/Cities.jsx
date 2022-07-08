@@ -26,7 +26,7 @@ function Cities() {
 
     const handlechange = (e) => {
         setInput(e.target.value)
-        console.log(input);
+        /* console.log(input); */
     }
 
 

@@ -2,46 +2,83 @@ import Accordion from "./Accordion";
 import activitiesActions from "../../redux/actions/activitesActions";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import itinerariesActions from "../../redux/actions/itinerariesActions";
 
 
-export default function Itinerary({ item }) {
+export default function Itinerary({ item, cityId }) {
 
-    
+    const itinerary = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
+
+    let cityIdf = cityId
+
+    const [activities, setActivites] = useState()
+    const[reload, setReload] = useState(false)
+    const[comment, setComment] = useState()
+   
 
     const dispatch = useDispatch()
 
-    async function getActions (){
+    //Obtengo las acciones
+    async function getActions() {
         let actions = await dispatch(activitiesActions?.findActFromTin(item._id))
-        console.log(actions);
+        if (actions.response.length > 0) { setActivites(actions.response[0].activities) }
     }
-    useEffect(() => {
-       getActions()
-    }, [])
+
+
+    //Despacho el id a la accion
+    async function getLikes() {
+        await dispatch(itinerariesActions?.likeAndDislike(item._id))
+        setReload(!reload)
+    }
+
+    //Obtengo solo un itinerario y seteo el dato
+    async function getComments() {
+        let comments = await dispatch(itinerariesActions.getOneItinerary(item._id))
+        setComment(comments)
+    }
     
+
+    //useEffect para actualizar el itinerario cuando doy like
+    useEffect(() => {
+        dispatch(itinerariesActions.getItinerariesByCity(cityId))
+    }, [reload])
+
+
+
+    useEffect(() => {
+        getComments()
+        getActions()
+    }, [itinerary])
+
+
     return (
 
-        <div className="container card mb-3 col-10 col-sm-12 col-md-8">
+        <div className="container card mb-3 col-10 col-sm-12 col-md-8 hola">
 
 
             {/* DETAIL BODY */}
 
-            <div className="card-body d-flex flex-md-row flex-column align-items-center">
+            <div className="card-body d-flex flex-md-row flex-column align-items-center detailCard">
                 <div>
                     <p>{item.userName}</p>
                     <img src={item.userPic} alt={item.userName} className="imgTinerary" />
                 </div>
 
 
-                <div className="container d-flex flex-column justify-content-around flex-wrap gap-3 align-items-center">
+                <div className="container d-flex flex-column justify-content-around flex-wrap align-items-center ">
                     <h2>{item.title}</h2>
                     <p>Price: {item.price}</p>
                     <p>Duration: {item.duration}</p>
-                    <p>🧡 {item.likes}</p>
+
+                    <button onClick={getLikes}>🧡</button>
+                    <p>{item?.likes.length}</p>
                     <p>{item.hashtag}</p>
                 </div>
             </div>
 
-            <Accordion/>
+            <Accordion props={activities} city={item} propId={cityIdf} comments={comment}/>
 
 
 

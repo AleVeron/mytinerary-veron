@@ -46,11 +46,11 @@ const activityActions = {
     },
 
     findActFromTin: (itineraryId) => {
-        console.log(itineraryId);
+        
         return async (dispatch, getState) => {
             try {
                 let answer = await axios.post(urlLocalHost + `api/activitiesFromTinerary`, { itineraryId })
-                console.log(answer.data.response.activities);
+                
                 return { //NO DESPACHA! RETURNA PARA SETEAR UN HOOK COMÚN
                     success: true, response: answer.data.response.activities
                 }

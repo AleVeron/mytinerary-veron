@@ -37,7 +37,6 @@ const activityController = {
 
     oneActivity: async (req,res) => { 
         let id = req.params.id 
-        console.log(id);
         let activity 
         let error = null 
         try{ 
@@ -56,7 +55,6 @@ const activityController = {
 
     findActFromTin: async (req,res) => { 
         let {itineraryId} = req.body
-        console.log("hola " + itineraryId)
         let activities 
         let error = null 
         try { 

@@ -51,7 +51,6 @@ const usersActions = {
             'Authorization': 'Bearer ' + token
           }
         })
-        console.log(user)
 
         if (user.data.success) {
           dispatch({ type: 'user', payload: { user: user.data.response, success: user.data.success } });
@@ -77,6 +76,7 @@ const usersActions = {
     });
     };
   },
+
 
 }
 
