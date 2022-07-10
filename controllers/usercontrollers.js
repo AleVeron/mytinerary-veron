@@ -4,7 +4,7 @@ const crypto = require('crypto')
 const sendVerificationMail = require('./sendVerificationMail')
 const jwt = require('jsonwebtoken')
 
-const urlHerokuFront = "https://mytinerary-back-veron.herokuapp.com/"
+const urlHerokuFront = "https://mytinerary-veron.herokuapp.com/"
 const urlHost = "http://localhost:4000/"
 
 const usersControllers = {
