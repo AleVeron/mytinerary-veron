@@ -10,8 +10,9 @@ import Swal from 'sweetalert2';
 function NavBar() {
 
 
+    //Traigo la informacion del usuario a logearse
     const logIn = useSelector(store => store.userReducer.user)
-
+    
     const dispatch = useDispatch()
 
 

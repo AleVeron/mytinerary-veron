@@ -33,6 +33,8 @@ function App() {
 
   }, [])
 
+  const token = localStorage.getItem('token')
+
   return (
 
     <div className='App'>
@@ -48,17 +50,19 @@ function App() {
           draggable
           pauseOnHover />
 
-        <NavBar />
+        <NavBar/>
 
         <Routes>
+          
           <Route path="/" element={<Main />} />
           <Route path="/index" element={<Main />} />
           <Route path="/home" element={<Main />} />
           <Route path="/*" element={<Error />} />
           <Route path="/cities" element={<Cities />} />
-          <Route path='/city/:id' element={<Detail />} />
-          <Route path='/signUp' element={<SignUp />} />
-          <Route path='/signIn' element={<SignIn />} />
+          {token ? <Route path="/*" element={<Error />}/> :<Route path='/signIn' element={<SignIn />} />}
+          {token ? <Route path="/*" element={<Error />} /> : <Route path='/signUp' element={<SignUp />} /> }
+          <Route path='/city/:id' element={<Detail />}/>
+          
         </Routes>
 
         <Footer />

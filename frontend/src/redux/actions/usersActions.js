@@ -34,6 +34,7 @@ const usersActions = {
             type: 'user',
             payload: { user: res.data.response.userData, success: res.data.success }
           })
+          console.log(res);
         }
 
         return res

@@ -14,13 +14,13 @@ const Cards = ({ city }) => {
   return (
 
     <>
-      <div key={city.id} className="container card mb-3 col-10 col-sm-12 col-md-5" data-aos="fade-up"
+      <div key={city.id} className="container card mb-3 col-10 col-sm-12 col-md-5 col-xl-3 rounded-5" data-aos="fade-up"
         data-aos-anchor-placement="top-bottom" style={{
           backgroundImage: `url("${city.image}")`,
           backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat"
         }}>
         <div className="card-img-top imgCard" alt={city.name} />
-        <div className="card-body d-flex justify-content-around align-items-center cardB">
+        <div className="card-body d-flex justify-content-around align-items-center cardB rounded-5">
           <div className="d-flex flex-column">
             <h5 className="card-title">{city.name}</h5>
             <h6>{city.country}</h6>

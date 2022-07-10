@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { toast } from 'react-toastify';
 import itinerariesActions from "../../redux/actions/itinerariesActions";
 
 
@@ -11,9 +12,10 @@ export default function Itinerary({ item, cityId }) {
 
     const itinerary = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
 
+    const userLogged = localStorage.getItem('token') //Variable para verificar si el usuario esta logeado
+
+    //RECIBO ESTE ID DE LA CIUDAD PARA UTILIZAR EL RELOAD EN EL ACORDEON
     let cityIdf = cityId
-
-
 
     const [activities, setActivites] = useState()
     const[reload, setReload] = useState(false)
@@ -31,8 +33,13 @@ export default function Itinerary({ item, cityId }) {
 
     //Despacho el id a la accion
     async function getLikes() {
-        await dispatch(itinerariesActions?.likeAndDislike(item._id))
-        setReload(!reload)
+        if (userLogged) {
+            let like = await dispatch(itinerariesActions?.likeAndDislike(item._id))
+            toast(like.data.message)
+            setReload(!reload)
+        }else{
+            toast("Please login")
+        }
     }
 
     //Obtengo solo un itinerario y seteo el dato
@@ -73,7 +80,7 @@ export default function Itinerary({ item, cityId }) {
                     <h2 className="tineraryTitle">{item.title}</h2>
                     <p className="tineraryP">Price: {item.price}</p>
                     <p className="tineraryP">Duration: {item.duration}</p>
-                    <button onClick={getLikes}>🧡</button>
+                    <button className="btn buttonLike" onClick={getLikes}>🧡</button>
                     <p className="tineraryP">{item?.likes.length}</p>
                     <p className="tineraryP">{item.hashtag}</p>
                 </div>

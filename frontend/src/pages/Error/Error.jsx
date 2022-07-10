@@ -8,8 +8,8 @@ function Error (){
 
     return(
         <div className="error d-flex flex-column justify-content-center">
-            <h1>INVALID URL</h1>
-            <h2>TRY WITH: /* , /home , /index </h2>
+            <h1 className="text-light">INVALID URL</h1>
+            <h2 className="text-light">TRY WITH: /* , /home , /index </h2>
         </div>
     )
 }

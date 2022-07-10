@@ -1,6 +1,6 @@
 .myCube {
-  width: 230px;
-  height: 250px;
+  width: 260px;
+  height: 270px;
 }
 
 .swiper-slide {
@@ -10,6 +10,19 @@
 
 .bordes{
   border-radius: 20px !important; 
+}
+
+.buttoncito{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.titleAcc{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 30px;
+}
+
+.buttonLike:focus{
+  border: none;
 }
 
 .tineraryP{
