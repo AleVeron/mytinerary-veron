@@ -8,7 +8,6 @@ const usersActions = {
     return async (dispatch, getState) => {
       try {
         const res = await axios.post(urlLocalHost + `api/signUp`, { userData })
-        console.log(res);
         dispatch({
           type: 'MESSAGE',
           payload: {
@@ -34,7 +33,6 @@ const usersActions = {
             type: 'user',
             payload: { user: res.data.response.userData, success: res.data.success }
           })
-          console.log(res);
         }
 
         return res

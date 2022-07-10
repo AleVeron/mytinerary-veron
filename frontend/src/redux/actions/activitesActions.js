@@ -35,7 +35,6 @@ const activityActions = {
         return async (dispatch, getState) => {
             try {
                 const answer = await axios.get(urlLocalHost + `api/activities/${id}`)
-                console.log(answer);
                 dispatch({ type: 'ONE_ACTIVITY', payload: answer.data.response.activities })
 
             } catch (err) {

@@ -166,7 +166,7 @@ const usersControllers = {
                 success: true
               }
 
-              console.log(userData);
+
               
               const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 }) //Creo el token
               await loginUser.save()
