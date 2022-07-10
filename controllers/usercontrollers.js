@@ -4,7 +4,8 @@ const crypto = require('crypto')
 const sendVerificationMail = require('./sendVerificationMail')
 const jwt = require('jsonwebtoken')
 
-
+const urlHerokuFront = "https://mytinerary-back-veron.herokuapp.com/"
+const urlHost = "http://localhost:4000/"
 
 const usersControllers = {
 
@@ -204,7 +205,7 @@ const usersControllers = {
     if (user) {
       user.verification = true
       await user.save()
-      res.redirect("http://localhost:3000/signIn")
+      res.redirect(`${urlHerokuFront}signIn`)
     }
     else {
       res.json({

@@ -16,7 +16,7 @@ app.use('/api', Router)
 app.use(passport.initialize())
 
 
-const PORT = 4000
+const PORT = process.env.PORT || 4000;
 app.set ('port', PORT)
 app.get ('/', (req, res) => {
     res.send('SERVIDOR CREADO!')
