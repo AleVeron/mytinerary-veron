@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-/* let urlLocalHost = 'https://mytinerary-borraz.herokuapp.com/' */
 let urlLocalHost = 'http://localhost:4000/'
+let urlHeroku = "https://mytinerary-back-veron.herokuapp.com/"
 
 const activityActions = {
 
     getActivities: () => {
         return async (dispatch, getState) => {
-            const res = await axios.get(urlLocalHost + `api/activities`)
+            const res = await axios.get(urlHeroku + `api/activities`)
             dispatch({ type: 'GET_ACTIVITIES', payload: res.data.response.activities })
             return res
         }
@@ -15,7 +15,7 @@ const activityActions = {
 
     uploadActivity: (activities, itinerary) => {
         return async (dispatch, getState) => {
-            const answer = await axios.post(urlLocalHost + 'api/activities', { activities, itinerary })
+            const answer = await axios.post(urlHeroku + 'api/activities', { activities, itinerary })
             dispatch({ type: 'UPD_ACTIVITY', payload: answer.data.response.activities })
         }
     },
@@ -23,7 +23,7 @@ const activityActions = {
     deleteAct: (id) => {
         return async (dispatch, getState) => {
             try {
-                const answer = await axios.delete(urlLocalHost + `api/activities/${id}`)
+                const answer = await axios.delete(urlHeroku + `api/activities/${id}`)
                 dispatch({ type: 'DEL_ACTIVITY', payload: answer.data.response.activities })
             } catch (err) {
                 console.log(err)
@@ -34,7 +34,7 @@ const activityActions = {
     oneActivity: (id) => {
         return async (dispatch, getState) => {
             try {
-                const answer = await axios.get(urlLocalHost + `api/activities/${id}`)
+                const answer = await axios.get(urlHeroku + `api/activities/${id}`)
                 dispatch({ type: 'ONE_ACTIVITY', payload: answer.data.response.activities })
 
             } catch (err) {
@@ -48,7 +48,7 @@ const activityActions = {
         
         return async (dispatch, getState) => {
             try {
-                let answer = await axios.post(urlLocalHost + `api/activitiesFromTinerary`, { itineraryId })
+                let answer = await axios.post(urlHeroku + `api/activitiesFromTinerary`, { itineraryId })
                 
                 return { //NO DESPACHA! RETURNA PARA SETEAR UN HOOK COMÚN
                     success: true, response: answer.data.response.activities

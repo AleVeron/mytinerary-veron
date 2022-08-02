@@ -1,5 +1,6 @@
 import axios from "axios";
 let urlLocalHost = 'http://localhost:4000/'
+let urlHeroku = "https://mytinerary-back-veron.herokuapp.com/"
 
 const commentariesActions = {
 
@@ -8,12 +9,12 @@ const commentariesActions = {
     return async (dispatch, getState) => {
 
       if (comment.comment !== "") {
-        const res = await axios.post(`${urlLocalHost}api/comments`, { comment }, {
+        const res = await axios.post(`${urlHeroku}api/comments`, { comment }, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
         })
-        console.log(res);
+
         return res
       }
       else {
@@ -33,7 +34,7 @@ const commentariesActions = {
     
     const token = localStorage.getItem('token')
     return async (dispatch, getState) => {
-        const res = await axios.put(`${urlLocalHost}api/comments`, { comment }, {
+        const res = await axios.put(`${urlHeroku}api/comments`, { comment }, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -54,7 +55,7 @@ deleteComment: (id) => {
 
     const token = localStorage.getItem('token')
     return async (dispatch, getState) => {
-        const res = await axios.post(`${urlLocalHost}api/comments/${id}`, {}, {
+        const res = await axios.post(`${urlHeroku}api/comments/${id}`, {}, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

@@ -1,5 +1,6 @@
 import axios from "axios";
 let urlLocalHost = 'http://localhost:4000/'
+let urlHeroku = "https://mytinerary-back-veron.herokuapp.com/"
 
 const usersActions = {
 
@@ -7,7 +8,7 @@ const usersActions = {
   signUpUsers: (userData) => {
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post(urlLocalHost + `api/signUp`, { userData })
+        const res = await axios.post(urlHeroku + `api/signUp`, { userData })
         dispatch({
           type: 'MESSAGE',
           payload: {
@@ -26,7 +27,7 @@ const usersActions = {
     
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post(urlLocalHost + 'api/login', {userSignIn})
+        const res = await axios.post(urlHeroku + 'api/login', {userSignIn})
         if (res.data.success) {
           localStorage.setItem('token', res.data.response.token)
           dispatch({
@@ -46,7 +47,7 @@ const usersActions = {
   verifyToken: (token) => {
     return async (dispatch, getState) => {
       try {
-        const user = await axios.get(urlLocalHost + 'api/logintoken', {
+        const user = await axios.get(urlHeroku + 'api/logintoken', {
           headers: {
             'Authorization': 'Bearer ' + token
           }

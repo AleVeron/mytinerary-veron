@@ -46,6 +46,7 @@ Router.route("/itineraries/like/:id")
 /* VALIDATOR ROUTE */
 const userValidator = require('../config/validator')
 
+
 /* ROUTES USERLOG */
 
 const userControllers = require('../controllers/usercontrollers')
@@ -79,6 +80,7 @@ Router.route('/activities/:id')
 
 Router.route('/activitiesFromTinerary')
     .post(findActFromTin)
+
 
 /* ROUTES COMMENTS  */
 
