@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   from: { type: Array },
   photoUser: { type: String },
   country: { type: String },
+  role: { type: String },
   uniqueString : { type: String, required: true },
   verification: { type: Boolean, required: true }
 })
